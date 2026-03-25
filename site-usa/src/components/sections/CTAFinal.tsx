@@ -4,9 +4,9 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from "fram
 import { useRef } from "react";
 import { Phone, Mail, Clock } from "lucide-react";
 import { TextShimmer } from "@/components/ui/text-shimmer";
-import { MagneticButton } from "@/components/ui/magnetic-button";
 import { TextDecode } from "@/components/ui/text-decode";
 import { LiquidBlob } from "@/components/ui/liquid-blob";
+import { ContactForm } from "@/components/sections/ContactForm";
 
 export function CTAFinal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -95,21 +95,15 @@ export function CTAFinal() {
           </div>
         </motion.div>
 
-        {/* CTA Button with 3D */}
+        {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="mb-12"
           style={{ transform: "translateZ(60px)" }}
         >
-          <MagneticButton
-            href="tel:8133899868"
-            magnetStrength={0.4}
-            className="inline-block relative px-12 py-5 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-[#0A0A0A] font-bold text-xl rounded-xl gold-glow overflow-hidden cursor-pointer"
-          >
-            <span className="relative z-10">Yes, I Want My Free Estimate</span>
-          </MagneticButton>
+          <ContactForm />
         </motion.div>
 
         {/* Contact info with 3D entrance */}

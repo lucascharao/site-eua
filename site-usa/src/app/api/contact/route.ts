@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || "https://hooks.iaxlab.top/webhook/groutabout-lead";
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -31,20 +34,28 @@ export async function POST(request: NextRequest) {
       submittedAt: new Date().toISOString(),
     };
 
-    const webhookRes = await fetch(
-      "https://hooks.iaxlab.top/webhook/a6f0fa75-2ea8-45fa-a708-f49c482214df",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }
-    );
+    const webhookRes = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
     if (!webhookRes.ok) {
       console.error("Webhook failed:", webhookRes.status);
     }
 
-    return NextResponse.json({ success: true });
+    // Build Calendly URL with pre-filled params
+    let calendlyUrl = "";
+    if (CALENDLY_URL) {
+      const params = new URLSearchParams({
+        name: `${firstName} ${lastName}`,
+        email,
+        a1: phone,
+      });
+      calendlyUrl = `${CALENDLY_URL}?${params.toString()}`;
+    }
+
+    return NextResponse.json({ success: true, calendlyUrl });
   } catch {
     return NextResponse.json(
       { error: "Internal server error" },

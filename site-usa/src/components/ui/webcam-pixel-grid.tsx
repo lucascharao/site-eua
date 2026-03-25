@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface WebcamPixelGridProps {
   gridCols?: number;
@@ -81,41 +81,9 @@ export function WebcamPixelGrid({
   onWebcamError,
 }: WebcamPixelGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const prevFrameRef = useRef<Uint8ClampedArray | null>(null);
   const elevationRef = useRef<Float32Array | null>(null);
   const animationRef = useRef<number>(0);
-  const veinPatternsRef = useRef<Array<Array<{ x1: number; y1: number; x2: number; y2: number; opacity: number }>>>([]);
   const startTimeRef = useRef<number>(Date.now());
-  const [hasWebcam, setHasWebcam] = useState(false);
-
-  const startWebcam = useCallback(async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { width: { ideal: 320 }, height: { ideal: 240 }, facingMode: "user" },
-      });
-      const video = document.createElement("video");
-      video.srcObject = stream;
-      video.playsInline = true;
-      video.muted = true;
-      await video.play();
-      videoRef.current = video;
-      setHasWebcam(true);
-      onWebcamReady?.();
-    } catch {
-      onWebcamError?.("Webcam not available");
-      setHasWebcam(false);
-    }
-  }, [onWebcamReady, onWebcamError]);
-
-  useEffect(() => {
-    startWebcam();
-    return () => {
-      if (videoRef.current?.srcObject) {
-        (videoRef.current.srcObject as MediaStream).getTracks().forEach((t) => t.stop());
-      }
-    };
-  }, [startWebcam]);
 
   // Pre-generate tile seed values for deterministic patterns
   const tileSeedsRef = useRef<Float32Array | null>(null);
@@ -140,11 +108,6 @@ export function WebcamPixelGrid({
       elevationRef.current = new Float32Array(totalCells);
     }
 
-    const offscreen = document.createElement("canvas");
-    offscreen.width = gridCols;
-    offscreen.height = gridRows;
-    const offCtx = offscreen.getContext("2d", { willReadFrequently: true });
-
     const render = () => {
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
@@ -163,55 +126,25 @@ export function WebcamPixelGrid({
       const blockW = cellW - gap;
       const blockH = cellH - gap;
 
-      let currentFrame: Uint8ClampedArray | null = null;
-
-      if (hasWebcam && videoRef.current && offCtx) {
-        if (mirror) {
-          offCtx.save();
-          offCtx.scale(-1, 1);
-          offCtx.drawImage(videoRef.current, -gridCols, 0, gridCols, gridRows);
-          offCtx.restore();
-        } else {
-          offCtx.drawImage(videoRef.current, 0, 0, gridCols, gridRows);
-        }
-        currentFrame = offCtx.getImageData(0, 0, gridCols, gridRows).data;
-      }
-
       const elevations = elevationRef.current!;
-      const prevFrame = prevFrameRef.current;
       const tileSeeds = tileSeedsRef.current;
 
       for (let row = 0; row < gridRows; row++) {
         for (let col = 0; col < gridCols; col++) {
           const idx = row * gridCols + col;
-          const pixIdx = idx * 4;
           const seed = tileSeeds ? tileSeeds[idx] : idx;
 
           // Normalized position across entire grid (for continuous veining)
           const gnx = col / gridCols;
           const gny = row / gridRows;
 
-          let webcamR = 0, webcamG = 0, webcamB = 0;
-          let motion = 0;
-          let hasColor = false;
-
-          if (currentFrame) {
-            webcamR = currentFrame[pixIdx];
-            webcamG = currentFrame[pixIdx + 1];
-            webcamB = currentFrame[pixIdx + 2];
-            hasColor = true;
-
-            if (prevFrame) {
-              const dr = Math.abs(webcamR - prevFrame[pixIdx]);
-              const dg = Math.abs(webcamG - prevFrame[pixIdx + 1]);
-              const db = Math.abs(webcamB - prevFrame[pixIdx + 2]);
-              motion = (dr + dg + db) / 3;
-            }
-          } else {
-            // Gentle animated fallback for elevation
-            const t = (Date.now() - startTimeRef.current) / 1000;
-            motion = Math.abs(Math.sin(gnx * 5 + t * 0.8) * Math.cos(gny * 4 + t * 0.5)) * 12;
-          }
+          // Ocean wave animation (no webcam)
+          const t = (Date.now() - startTimeRef.current) / 1000;
+          const wave1 = Math.sin(gnx * 6 + t * 0.6) * Math.cos(gny * 3 + t * 0.4);
+          const wave2 = Math.sin((gnx + gny) * 4 + t * 0.35) * 0.5;
+          const wave3 = Math.cos(gnx * 8 - t * 0.5 + gny * 2) * 0.3;
+          const ripple = Math.sin(Math.sqrt((gnx - 0.5) ** 2 + (gny - 0.5) ** 2) * 12 - t * 1.2) * 0.4;
+          const motion = Math.abs(wave1 + wave2 + wave3 + ripple) * 8;
 
           const targetElevation = Math.min(motion * motionSensitivity, 1) * maxElevation;
           elevations[idx] += (targetElevation - elevations[idx]) * elevationSmoothing;
@@ -223,25 +156,10 @@ export function WebcamPixelGrid({
           // === CALACATTA + ONYX PORCELAIN TILE RENDERING ===
 
           // 1. Base: White/cream porcelain base
-          // Subtle warm variation per tile
           const warmth = smoothNoise(gnx * 4, gny * 4, seed) * 0.08;
           let baseR = 240 + warmth * 15;
           let baseG = 235 + warmth * 12;
           let baseB = 228 + warmth * 8;
-
-          // If webcam active, subtly tint the base with webcam color (very subtle)
-          if (hasColor) {
-            const tintStrength = 0.15;
-            const webcamLum = (webcamR + webcamG + webcamB) / 3;
-            // Darken based on webcam luminance
-            const lumFactor = 0.7 + (webcamLum / 255) * 0.3;
-            baseR = baseR * (1 - tintStrength) + webcamR * tintStrength;
-            baseG = baseG * (1 - tintStrength) + webcamG * tintStrength;
-            baseB = baseB * (1 - tintStrength) + webcamB * tintStrength;
-            baseR *= lumFactor;
-            baseG *= lumFactor;
-            baseB *= lumFactor;
-          }
 
           // Apply darken
           const d = 1 - darken;
@@ -328,10 +246,6 @@ export function WebcamPixelGrid({
         }
       }
 
-      if (currentFrame) {
-        prevFrameRef.current = new Uint8ClampedArray(currentFrame);
-      }
-
       animationRef.current = requestAnimationFrame(render);
     };
 
@@ -340,7 +254,7 @@ export function WebcamPixelGrid({
     return () => {
       cancelAnimationFrame(animationRef.current);
     };
-  }, [hasWebcam, gridCols, gridRows, maxElevation, motionSensitivity, elevationSmoothing, colorMode, backgroundColor, mirror, gapRatio, invertColors, darken, borderColor, borderOpacity, startTimeRef]);
+  }, [gridCols, gridRows, maxElevation, motionSensitivity, elevationSmoothing, backgroundColor, gapRatio, darken, borderColor, borderOpacity]);
 
   return <canvas ref={canvasRef} className={className} style={{ width: "100%", height: "100%" }} />;
 }
