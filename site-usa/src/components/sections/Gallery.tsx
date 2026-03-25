@@ -10,7 +10,7 @@ import { LiquidBlob } from "@/components/ui/liquid-blob";
 const galleryImages = [
   {
     src: "/images/bathrooms/bathroom-1.webp",
-    alt: "$47K Master Suite",
+    alt: "Dream Master Suite",
     description: "Freestanding tub, marble accent wall & frameless glass. Done in 12 days.",
     span: "md:col-span-2 md:row-span-2",
   },
