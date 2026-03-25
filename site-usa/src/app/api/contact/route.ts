@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || "https://hooks.iaxlab.top/webhook/groutabout-lead";
-const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/groutaboutbathroom-info/30min";
 
 export async function POST(request: NextRequest) {
   try {
