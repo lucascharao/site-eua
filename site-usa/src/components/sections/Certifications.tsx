@@ -38,8 +38,8 @@ export function Certifications() {
                   <ShieldCheck className="w-9 h-9 text-gold" />
                 </motion.div>
                 <div>
-                  <p className="text-white font-semibold text-lg">Certified Schluter</p>
-                  <p className="text-[#888] text-sm">Advanced Waterproofing Installer</p>
+                  <p className="text-white font-semibold text-lg">Schluter Certified Installer</p>
+                  <p className="text-[#888] text-sm">Your shower won&apos;t leak. Guaranteed.</p>
                 </div>
               </div>
             </TiltCard>
@@ -69,8 +69,8 @@ export function Certifications() {
                   <Medal className="w-9 h-9 text-gold" />
                 </motion.div>
                 <div>
-                  <p className="text-white font-semibold text-lg">NTCA Standards</p>
-                  <p className="text-[#888] text-sm">National Tile Contractor Association</p>
+                  <p className="text-white font-semibold text-lg">NTCA Compliant</p>
+                  <p className="text-[#888] text-sm">Built to the highest industry standard. No shortcuts.</p>
                 </div>
               </div>
             </TiltCard>
@@ -85,8 +85,8 @@ export function Certifications() {
           className="mt-12 text-center"
         >
           <p className="font-[family-name:var(--font-cormorant)] text-xl md:text-2xl text-[#888] italic">
-            &ldquo;A $15,000 tile job on top of bad waterproofing is a $15,000 problem waiting to happen.
-            We do it right the first time so you never have to do it twice.&rdquo;
+            &ldquo;You can put $15,000 worth of gorgeous tile on top of bad waterproofing — and in 3 years
+            you&apos;ll rip it all out and pay twice. We make sure that never happens.&rdquo;
           </p>
         </motion.div>
       </div>

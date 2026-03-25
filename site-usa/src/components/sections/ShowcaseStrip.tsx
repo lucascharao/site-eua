@@ -5,10 +5,10 @@ import { useRef } from "react";
 import Image from "next/image";
 
 const showcaseImages = [
-  { src: "/images/bathrooms/bathroom-1.webp", alt: "Master bathroom with freestanding tub and glass shower", label: "Master Bathroom" },
-  { src: "/images/bathrooms/bathroom-2.webp", alt: "Luxury bathroom with gold fixtures and marble", label: "Gold & Marble" },
-  { src: "/images/bathrooms/bathroom-3.webp", alt: "Classic white bathroom with dual vanity", label: "Classic White" },
-  { src: "/images/bathrooms/bathroom-4.webp", alt: "Modern bathroom with gold accents and LED lighting", label: "Modern Luxury" },
+  { src: "/images/bathrooms/bathroom-1.webp", alt: "Master bathroom with freestanding tub and glass shower", label: "Before: Builder Grade. After: This." },
+  { src: "/images/bathrooms/bathroom-2.webp", alt: "Luxury bathroom with gold fixtures and marble", label: "Full Marble + Gold Hardware" },
+  { src: "/images/bathrooms/bathroom-3.webp", alt: "Classic white bathroom with dual vanity", label: "Guest Bath Glow-Up" },
+  { src: "/images/bathrooms/bathroom-4.webp", alt: "Modern bathroom with gold accents and LED lighting", label: "Hotel-Level Master Suite" },
 ];
 
 export function ShowcaseStrip() {

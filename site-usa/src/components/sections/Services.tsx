@@ -9,22 +9,22 @@ import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 const services = [
   {
     icon: Bath,
-    title: "Full Bathroom Remodel",
-    description: "Guest or master bathroom, gutted to studs and rebuilt. Tile, fixtures, vanity, lighting. One team. One timeline. No excuses.",
+    title: "Complete Gut & Rebuild",
+    description: "Rip it out. Start fresh. Tile, fixtures, vanity, lighting — one crew, one timeline, one price. No surprise change orders. No 'we forgot to mention' invoices. The bathroom you've been scrolling Pinterest for — built in 10-14 days.",
     image: "/images/bathrooms/bathroom-1.webp",
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
     icon: Paintbrush,
-    title: "Guest Bathroom Refresh",
-    description: "New tile, updated vanity, modern fixtures. We transform your guest bath into something your visitors will remember.",
+    title: "Guest Bath That Impresses",
+    description: "Stop apologizing for your guest bathroom. New tile, modern vanity, updated fixtures. Your in-laws will think you spent $40K. You didn't.",
     image: "/images/bathrooms/bathroom-2.webp",
     span: "lg:col-span-1 lg:row-span-1",
   },
   {
     icon: Wrench,
-    title: "Master Bathroom Upgrade",
-    description: "Premium finishes, double vanity, walk-in shower, luxury tile work. The bathroom you deserve after 15 years in the same house.",
+    title: "Master Suite You Deserve",
+    description: "Walk-in shower, double vanity, premium tile. You've earned a bathroom that feels like a 5-star hotel. Every. Single. Morning.",
     image: "/images/bathrooms/bathroom-3.webp",
     span: "lg:col-span-1 lg:row-span-1",
   },
@@ -125,14 +125,14 @@ export function Services() {
           className="text-center mb-16"
         >
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl font-bold mb-4">
-            What We <span className="gold-gradient-text">Build</span>
+            Pick Your <span className="gold-gradient-text">Transformation</span>
           </h2>
           <TextShimmer
             as="p"
             className="text-lg font-[family-name:var(--font-cormorant)]"
             duration={4}
           >
-            Bathrooms only. Guest and master. Nothing else. That is why we are good at it.
+            We do bathrooms. That is it. No kitchens, no floors, no additions. 100% focus = 100% quality.
           </TextShimmer>
         </motion.div>
 

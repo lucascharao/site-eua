@@ -93,14 +93,14 @@ export function FollowUs() {
           className="text-center mb-10"
         >
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl font-bold mb-4">
-            Follow <span className="gold-gradient-text">Us</span>
+            Ready to Love Your <span className="gold-gradient-text">Bathroom Again?</span>
           </h2>
           <TextShimmer
             as="p"
             className="text-lg font-[family-name:var(--font-cormorant)]"
             duration={4}
           >
-            Tell us about your bathroom. We will tell you exactly what it takes.
+            Fill this out in 60 seconds. The owner calls you personally within 24 hours with an honest quote. No gatekeepers.
           </TextShimmer>
         </motion.div>
 
@@ -116,8 +116,8 @@ export function FollowUs() {
               className="p-10 rounded-2xl bg-surface border border-gold/30 text-center"
             >
               <CheckCircle className="w-16 h-16 text-gold mx-auto mb-4" />
-              <h3 className="text-white text-2xl font-semibold mb-2">Thank You!</h3>
-              <p className="text-[#888]">We received your information and will get back to you shortly.</p>
+              <h3 className="text-white text-2xl font-semibold mb-2">You&apos;re In!</h3>
+              <p className="text-[#888]">The owner will personally call you within 24 hours. Not an assistant. Not a call center. The person who will tile your bathroom.</p>
               <button
                 onClick={() => setSent(false)}
                 className="mt-6 text-gold text-sm font-semibold hover:underline"
@@ -196,7 +196,7 @@ export function FollowUs() {
                 <textarea
                   value={form.description}
                   onChange={(e) => update("description", e.target.value)}
-                  placeholder="Tell us about your project..."
+                  placeholder="Cracked tiles, mold, outdated look, want a full remodel..."
                   rows={3}
                   className={`${inputClass} resize-none`}
                 />
@@ -250,7 +250,7 @@ export function FollowUs() {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Send
+                    Get My Free Estimate
                   </>
                 )}
               </motion.button>

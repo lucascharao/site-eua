@@ -100,7 +100,7 @@ export function ContactForm() {
           Thank You!
         </h3>
         <p className="text-[#999] text-lg mb-6">
-          We received your request. Our team will reach out within 24 hours to schedule your free estimate.
+          You&apos;re on the list. The owner will personally call you within 24 hours to schedule your free in-home estimate.
         </p>
         <p className="text-gold/70 text-sm">Redirecting to schedule your appointment...</p>
       </motion.div>
@@ -187,7 +187,7 @@ export function ContactForm() {
         {/* Project description */}
         <div>
           <label htmlFor="description" className="block text-sm text-gold/80 mb-1.5 font-medium">
-            Tell us about your project
+            What&apos;s driving you crazy about your bathroom?
           </label>
           <textarea
             id="description"
@@ -195,7 +195,7 @@ export function ContactForm() {
             value={formData.description}
             onChange={handleChange}
             rows={3}
-            placeholder="Guest bathroom remodel, new tile shower, steam shower..."
+            placeholder="Cracked tiles, mold in the shower, outdated 90s look, want a full remodel..."
             className={inputClasses + " resize-none"}
           />
         </div>
@@ -270,13 +270,13 @@ export function ContactForm() {
           ) : (
             <>
               <Send className="w-5 h-5" />
-              Get My Free Estimate
+              Claim My Free $500 Estimate
             </>
           )}
         </motion.button>
 
         <p className="text-center text-[#666] text-xs">
-          No spam. No pressure. We&apos;ll get back to you within 24 hours.
+          Zero spam. Zero pressure. The owner calls you personally within 24 hours. Not a call center.
         </p>
       </form>
     </motion.div>

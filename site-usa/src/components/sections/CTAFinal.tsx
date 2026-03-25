@@ -79,9 +79,9 @@ export function CTAFinal() {
           style={{ transform: "translateZ(40px)" }}
         >
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <TextDecode text="Your New Bathroom" className="font-[family-name:var(--font-playfair)] !font-bold" speed={25} />{" "}
+            <TextDecode text="Every Day You Wait" className="font-[family-name:var(--font-playfair)] !font-bold" speed={25} />{" "}
             <span className="gold-gradient-text">
-              <TextDecode text="Starts Here" className="font-[family-name:var(--font-playfair)] !font-bold gold-gradient-text" speed={25} delay={400} />
+              <TextDecode text="Is Another Morning in That Old Bathroom" className="font-[family-name:var(--font-playfair)] !font-bold gold-gradient-text" speed={25} delay={400} />
             </span>
           </h2>
           <div className="mb-10">
@@ -90,7 +90,7 @@ export function CTAFinal() {
               className="text-xl font-[family-name:var(--font-cormorant)]"
               duration={3}
             >
-              Free estimate. No pressure. We show up, measure, and give you an honest number.
+              Get a detailed, no-obligation estimate worth $500 — completely free. We show up, measure everything, and give you an honest number. No sales tricks. No bait-and-switch. If we are not the right fit, we will tell you.
             </TextShimmer>
           </div>
         </motion.div>

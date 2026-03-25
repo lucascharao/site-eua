@@ -6,10 +6,10 @@ import { Shield, Wrench, Award, UserCheck } from "lucide-react";
 import { TiltCard } from "@/components/ui/tilt-card";
 
 const differentiators = [
-  { icon: UserCheck, label: "Owner Does the Work", description: "The person you talk to is the person tiling your bathroom. No middlemen. No day laborers. No surprises." },
-  { icon: Wrench, label: "15+ Years Hands-On", description: "Over 500 bathrooms completed in Tampa Bay. Guest bathrooms, master bathrooms. That is all we do." },
-  { icon: Award, label: "Schluter Certified", description: "Certified installer of Schluter waterproofing systems. Your shower will not leak in 5 years. Guaranteed." },
-  { icon: Shield, label: "NTCA Compliant", description: "We follow National Tile Contractor Association standards. Not because we have to. Because cutting corners costs you more later." },
+  { icon: UserCheck, label: "The Owner Tiles Your Bathroom", description: "Not a project manager. Not a random sub he found on Craigslist. The guy who answers your call is the guy laying your tile. Period." },
+  { icon: Wrench, label: "500+ Bathrooms. 15 Years. Zero Lawsuits.", description: "We only do bathrooms. No kitchens. No additions. No distractions. That kind of focus is why we're booked 3-4 weeks out." },
+  { icon: Award, label: "Schluter Certified = Your Shower Won't Leak", description: "93% of shower leaks come from bad waterproofing. We use Schluter Kerdi systems with a manufacturer-backed warranty. Sleep easy." },
+  { icon: Shield, label: "NTCA Standards (Not Optional)", description: "Most contractors don't even know what NTCA stands for. We build to National Tile Contractor Association specs because your $30K bathroom deserves it." },
 ];
 
 export function ValueProposition() {
@@ -30,12 +30,12 @@ export function ValueProposition() {
           className="text-center mb-16"
         >
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl font-bold mb-6">
-            Why 9 Out of 10 Tampa Homeowners{" "}
-            <span className="gold-gradient-text">Pick the Wrong Contractor</span>
+            The Expensive Mistake{" "}
+            <span className="gold-gradient-text">87% of Tampa Homeowners Make</span>
           </h2>
           <p className="text-lg md:text-xl text-[#999] max-w-3xl mx-auto font-[family-name:var(--font-cormorant)]">
-            Most contractors in Tampa are project managers who never touch a tile. They hire the cheapest labor they can find.
-            You pay premium. You get subcontractor roulette. Here is what we do differently.
+            They hire a &ldquo;bathroom remodeler&rdquo; who is really a general contractor with a tile guy he met last week.
+            You pay $25K+. He disappears for 3 days mid-job. Sound familiar? Here is why we are different.
           </p>
         </motion.div>
 

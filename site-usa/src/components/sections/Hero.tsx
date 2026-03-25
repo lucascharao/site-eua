@@ -189,9 +189,9 @@ export function Hero() {
           style={{ transform: "translateZ(60px)" }}
         >
           <h1 className="font-[family-name:var(--font-playfair)] text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            <TextDecode text="Your Bathroom Remodeled" className="font-[family-name:var(--font-playfair)] !font-bold" speed={25} />{" "}
+            <TextDecode text="Stop Showering in a Bathroom" className="font-[family-name:var(--font-playfair)] !font-bold" speed={25} />{" "}
             <span className="gold-gradient-text">
-              <TextDecode text="Without the Headaches" className="font-[family-name:var(--font-playfair)] !font-bold gold-gradient-text" speed={25} delay={600} />
+              <TextDecode text="You're Embarrassed By" className="font-[family-name:var(--font-playfair)] !font-bold gold-gradient-text" speed={25} delay={600} />
             </span>
           </h1>
         </motion.div>
@@ -209,7 +209,7 @@ export function Hero() {
             className="font-[family-name:var(--font-cormorant)] text-xl md:text-2xl max-w-2xl mx-auto"
             duration={3}
           >
-            Owner-operated. Schluter certified. 15+ years. Guest and master bathrooms across Tampa Bay.
+            The owner does the work. Not a subcontractor. Not a day laborer. 500+ bathrooms. 15+ years. Schluter certified. Tampa Bay only.
           </TextShimmer>
         </motion.div>
 
@@ -226,7 +226,7 @@ export function Hero() {
             magnetStrength={0.3}
             className="group relative px-8 py-4 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-[#0A0A0A] font-semibold text-lg rounded-lg overflow-hidden transition-all duration-300 gold-glow cursor-pointer"
           >
-            <span className="relative z-10">Get My Free Estimate</span>
+            <span className="relative z-10">Claim Your Free $500 Estimate</span>
           </MagneticButton>
           <MagneticButton
             href="tel:8133899868"

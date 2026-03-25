@@ -10,26 +10,26 @@ import { LiquidBlob } from "@/components/ui/liquid-blob";
 const galleryImages = [
   {
     src: "/images/bathrooms/bathroom-1.webp",
-    alt: "Master Bathroom Remodel",
-    description: "Freestanding tub with marble accent wall & glass shower",
+    alt: "$47K Master Suite",
+    description: "Freestanding tub, marble accent wall & frameless glass. Done in 12 days.",
     span: "md:col-span-2 md:row-span-2",
   },
   {
     src: "/images/bathrooms/bathroom-2.webp",
-    alt: "Gold Fixtures Bathroom",
-    description: "Full marble with premium gold hardware throughout",
+    alt: "Full Marble + Gold Hardware",
+    description: "This South Tampa homeowner fired 2 contractors before finding us. Done right.",
     span: "md:col-span-1 md:row-span-1",
   },
   {
     src: "/images/bathrooms/bathroom-3.webp",
-    alt: "Classic White Bathroom",
-    description: "Dual vanity with freestanding tub & natural light",
+    alt: "Guest Bath Transformation",
+    description: "From 1990s pink tile to this. Guests now ask 'Who did your bathroom?'",
     span: "md:col-span-1 md:row-span-1",
   },
   {
     src: "/images/bathrooms/bathroom-4.webp",
-    alt: "Modern Luxury Suite",
-    description: "Double vessel sinks with LED backlit mirror",
+    alt: "5-Star Hotel Feel at Home",
+    description: "Double vessel sinks, LED backlit mirror. $38K all-in. Zero change orders.",
     span: "md:col-span-2 md:row-span-1",
   },
 ];
@@ -145,7 +145,7 @@ export function Gallery() {
             magnetStrength={0.3}
             className="inline-block px-8 py-4 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-[#0A0A0A] font-semibold text-lg rounded-lg gold-glow transition-all duration-300 cursor-pointer"
           >
-            Get Your Bathroom Like This
+            I Want a Bathroom Like This
           </MagneticButton>
         </motion.div>
       </div>

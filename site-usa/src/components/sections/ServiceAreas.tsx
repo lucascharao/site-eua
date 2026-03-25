@@ -24,14 +24,14 @@ export function ServiceAreas() {
           className="text-center mb-12"
         >
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl font-bold mb-4">
-            We Come to <span className="gold-gradient-text">You</span>
+            Serving All of <span className="gold-gradient-text">Tampa Bay</span>
           </h2>
           <TextShimmer
             as="p"
             className="text-lg font-[family-name:var(--font-cormorant)]"
             duration={3}
           >
-            500+ bathrooms completed across these Tampa Bay communities
+            Your neighbors already hired us. 500+ bathrooms completed across these communities.
           </TextShimmer>
         </motion.div>
 

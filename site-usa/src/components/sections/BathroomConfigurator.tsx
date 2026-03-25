@@ -106,14 +106,14 @@ export function BathroomConfigurator() {
             <span className="text-gold text-xs font-semibold uppercase tracking-wider">AI-Powered Visualization</span>
           </div>
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl font-bold mb-4">
-            Design Your <span className="gold-gradient-text">Dream Shower</span>
+            See Your New Shower <span className="gold-gradient-text">Before You Spend a Dime</span>
           </h2>
           <TextShimmer
             as="p"
             className="text-lg font-[family-name:var(--font-cormorant)]"
             duration={4}
           >
-            Pick a tile. See it on your shower. No guesswork. Real textures from Florida suppliers.
+            Most contractors make you guess. We let you see it first. Pick a tile below — real options from Florida suppliers you can buy today.
           </TextShimmer>
         </motion.div>
 
@@ -234,7 +234,7 @@ export function BathroomConfigurator() {
               whileTap={{ scale: 0.97 }}
               className="block text-center px-6 py-4 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-[#0A0A0A] font-semibold rounded-xl gold-glow transition-all"
             >
-              Get This Look — Free Estimate
+              Love This? Get a Free Quote in 24 Hours
             </motion.a>
           </motion.div>
         </div>

@@ -29,8 +29,8 @@ export function Footer() {
               />
             </div>
             <p className="text-[#777] text-sm text-center md:text-left">
-              Tampa Bay bathroom remodeling. Guest and master bathrooms.
-              Owner-operated. Schluter certified. 500+ bathrooms completed.
+              Tampa Bay&apos;s owner-operated bathroom specialists.
+              500+ bathrooms. 15+ years. Schluter certified. The contractor your neighbor recommends.
             </p>
           </div>
 
