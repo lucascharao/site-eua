@@ -206,7 +206,7 @@ export function Hero() {
         >
           <TextShimmer
             as="p"
-            className="font-[family-name:var(--font-cormorant)] text-xl md:text-2xl max-w-2xl mx-auto"
+            className="font-[family-name:var(--font-cormorant)] text-xl md:text-2xl max-w-2xl mx-auto [--base-color:#d4d4d8] [--base-gradient-color:#F5E6B8] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
             duration={3}
           >
             The owner does the work. Not a subcontractor. Not a day laborer. 500+ bathrooms. 15+ years. Schluter certified. Tampa Bay only.
@@ -259,7 +259,7 @@ export function Hero() {
         />
       </div>
       {/* Gradient overlay for readability */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/40 to-black/70 pointer-events-none" />
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10" />
